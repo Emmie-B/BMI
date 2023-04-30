@@ -11,8 +11,8 @@ const Color KIconColor = Color(0xFF4C4f5E);
 
 const TextStyle KTextStyle =
     TextStyle(fontSize: 18.0, color: Color(0xFF8d8e98));
-const TextStyle KNumberStyle =
-    TextStyle(fontSize: 50.0, fontWeight: FontWeight.w900);
+const TextStyle KNumberStyle = TextStyle(
+    fontSize: 50.0, fontWeight: FontWeight.w900, color: Color(0xFFFFFFFF));
 const kResultTextStyle = TextStyle(
   color: Color(0xFF24D876),
   fontSize: 22.0,
