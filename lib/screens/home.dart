@@ -18,12 +18,14 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   GenderType? selectedGender;
+  // TextEditingController _height = TextEditingController();
   double _height = 120;
   double _wieght = 50;
   int _age = 18;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: Center(
           child: Text(
@@ -79,14 +81,33 @@ class _MyHomePageState extends State<MyHomePage> {
                     'HEIGHT',
                     style: KTextStyle,
                   ),
+                  //  TextField(
+                  //       obscureText: true,
+                  //
                   Row(
-                    crossAxisAlignment: CrossAxisAlignment.baseline,
                     mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.baseline,
                     textBaseline: TextBaseline.alphabetic,
                     children: [
-                      Text(
-                        _height.toString(),
-                        style: KNumberStyle,
+                      SizedBox(
+                        width: 138,
+                        child: TextFormField(
+                          controller:
+                              TextEditingController(text: _height.toString()),
+                          style: KNumberStyle,
+                          maxLength: 5,
+                          keyboardType: TextInputType.number,
+                          onChanged: (val) {
+                            setState(() {
+                              double height = double.parse(val);
+                              _height = height;
+                            });
+                          },
+                          decoration: InputDecoration(
+                              counterText: "",
+                              border: InputBorder.none,
+                              contentPadding: EdgeInsets.all(2)),
+                        ),
                       ),
                       Text(
                         'cm',
@@ -104,8 +125,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     child: Slider(
                       thumbColor: KActiveColor,
-                      min: 120,
-                      max: 220,
+                      min: 0,
+                      max: 500,
                       overlayColor:
                           MaterialStateProperty.all(Color(0x29EB1555)),
                       activeColor: KActiveSliderColor,
