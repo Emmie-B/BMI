@@ -55,9 +55,9 @@ class ResultScreen extends StatelessWidget {
                       ElevatedButton(
                           onPressed: () async {
                             await Share.share(
-                                'check out my website https://example.com');
+                                " I have calculated my BMI with Emmie's BMI Calculator. Do yours now with the app. It's totally free");
                           },
-                          child: Text('Share Result'))
+                          child: Text('Share'))
                     ],
                   ),
                 ),
